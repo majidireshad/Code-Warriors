@@ -118,7 +118,7 @@ export const quizData = {
       ],
     },
     {
-      text: 'Where is the correct place to insert a JavaScript?',
+      text: 'Where is the correct place to insert a JavaScript in HTML?',
       answers: {
         a: 'Both the <head> section and the <body> section are correct',
         b: 'The <head> section',
@@ -138,7 +138,7 @@ export const quizData = {
       ],
     },
     {
-      text: ' --------------- method returns the number of milliseconds in a date string.',
+      text: ' Which method returns the number of milliseconds in a date string?',
       answers: {
         a: 'setHours()',
         b: 'setMinutes()',
@@ -158,9 +158,9 @@ export const quizData = {
       ],
     },
     {
-      text: 'Who invented the javascript programming language?',
+      text: 'Who invented the javaScript programming language?',
       answers: {
-        a: 'Tennis Ritchie',
+        a: 'Dennis Ritchie',
         b: 'James Gosling',
         c: 'Brendan Eich',
       },
@@ -178,7 +178,7 @@ export const quizData = {
       ],
     },
     {
-      text: 'Math.round(-20.5)=?',
+      text: 'Math.round(-20.5) returns?',
       answers: {
         a: '-21',
         b: '20',
@@ -199,23 +199,23 @@ export const quizData = {
       ],
     },
     {
-      text: 'How do you delete an element from an options array?',
+      text: 'What are the following looping structures are available in javaScript?',
       answers: {
-        a: 'Set it to false',
-        b: 'Set it to null',
-        c: 'Set it to undefined',
-        d: 'Set it to -1',
+        a: 'for, forEach',
+        b: 'forEach, while loop',
+        c: 'do...while loop,forEach',
+        d: 'for , while loop',
       },
-      correct: 'b',
+      correct: 'd',
       selected: null,
       links: [
         {
           text: 'W3docs',
-          href: 'https://www.w3docs.com/snippets/javascript/how-to-remove-an-element-from-an-array-in-javascript.html',
+          href: 'https://www.w3schools.com/js/js_loop_for.asp#:~:text=%20JavaScript%20For%20Loop%20%201%20JavaScript%20Loops.,the%20variable%20used%20in%20the%20loop...%20More%20',
         },
         {
           text: 'MDN',
-          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration',
         },
       ],
     }
