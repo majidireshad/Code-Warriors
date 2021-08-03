@@ -116,6 +116,109 @@ export const quizData = {
           href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript',
         },
       ],
+    },
+    {
+      text: 'Where is the correct place to insert a JavaScript?',
+      answers: {
+        a: 'Both the <head> section and the <body> section are correct',
+        b: 'The <head> section',
+        c: 'The <body> section',
+      },
+      correct: 'a',
+      selected: null,
+      links: [
+        {
+          text: 'Javapoint.com',
+          href: 'https://www.javatpoint.com/how-to-add-javascript-to-html#:~:text=To%20add%20the%20JavaScript%20code%20into%20the%20HTML,of%20the%20web%20page%20that%20the%20users%20use.',
+        },
+        {
+          text: 'W3school',
+          href: 'https://www.w3schools.com/js/js_whereto.asp',
+        },
+      ],
+    },
+    {
+      text: ' --------------- method returns the number of milliseconds in a date string.',
+      answers: {
+        a: 'setHours()',
+        b: 'setMinutes()',
+        c: 'parse()',
+      },
+      correct: 'c',
+      selected: null,
+      links: [
+        {
+          text: 'Javapoint.com',
+          href: 'https://www.javatpoint.com/java-date-parse-method#:~:text=Java%20Date%20parse%20%28%29%20Method%20The%20parse%20%28%29,1970%2C%2000%3A00%3A00%20GMT%20represented%20by%20this%20string%20argument.',
+        },
+        {
+          text: 'MDN',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse',
+        },
+      ],
+    },
+    {
+      text: 'Who invented the javascript programming language?',
+      answers: {
+        a: 'Tennis Ritchie',
+        b: 'James Gosling',
+        c: 'Brendan Eich',
+      },
+      correct: 'c',
+      selected: null,
+      links: [
+        {
+          text: 'Asking Huge',
+          href: 'https://askingthelot.com/who-introduced-javascript/',
+        },
+        {
+          text: 'W3school JavaScript History',
+          href: 'https://www.w3schools.in/javascript-tutorial/history-of-javascript/',
+        },
+      ],
+    },
+    {
+      text: 'Math.round(-20.5)=?',
+      answers: {
+        a: '-21',
+        b: '20',
+        c: '-20',
+        d: '21',
+      },
+      correct: 'c',
+      selected: null,
+      links: [
+        {
+          text: 'MDN',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round',
+        },
+        {
+          text: 'W3school',
+          href: 'https://www.w3schools.com/jsref/jsref_round.asp',
+        },
+      ],
+    },
+    {
+      text: 'How do you delete an element from an options array?',
+      answers: {
+        a: 'Set it to false',
+        b: 'Set it to null',
+        c: 'Set it to undefined',
+        d: 'Set it to -1',
+      },
+      correct: 'b',
+      selected: null,
+      links: [
+        {
+          text: 'W3docs',
+          href: 'https://www.w3docs.com/snippets/javascript/how-to-remove-an-element-from-an-array-in-javascript.html',
+        },
+        {
+          text: 'MDN',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice',
+        },
+         
+      ],
     }
   ],
 };
