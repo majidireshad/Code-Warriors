@@ -118,7 +118,7 @@ export const quizData = {
       ],
     },
     {
-      text: 'Where is the correct place to insert a JavaScript in HTML?',
+      text: 'Where is the correct place to insert JavaScript in HTML?',
       answers: {
         a: 'Both the <head> section and the <body> section are correct',
         b: 'The <head> section',
@@ -138,7 +138,7 @@ export const quizData = {
       ],
     },
     {
-      text: ' Which method returns the number of milliseconds in a date string?',
+      text: 'Which method returns the number of milliseconds in a date string?',
       answers: {
         a: 'setHours()',
         b: 'setMinutes()',
@@ -199,7 +199,7 @@ export const quizData = {
       ],
     },
     {
-      text: 'What are the following looping structures are available in javaScript?',
+      text: 'Which of the following looping structures are available in javaScript?',
       answers: {
         a: 'for, forEach',
         b: 'forEach, while loop',
