@@ -20,3 +20,9 @@ export const handleNextQuestion = () => {
 
   showCurrentQuestion();
 };
+export const hoverOnAnswers = ()=> {
+  const selectItems = document.getElementsByClassName('democlass')
+  for(const items of selectItems){
+    items.style.cursor = "pointer";
+  }
+};

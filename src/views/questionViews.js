@@ -1,7 +1,7 @@
 'use strict';
 
 import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
-import { nextQuestion } from '../listeners/questionListeners.js';
+import {answerHover, nextQuestion} from '../listeners/questionListeners.js';
 import { createDOMElement } from '../utils/DOMUtils.js';
 
 /**
@@ -9,8 +9,10 @@ import { createDOMElement } from '../utils/DOMUtils.js';
  */
 export const createAnswerElement = (answerText) => {
   const answerElement = createDOMElement('li');
+  answerElement.setAttribute("class", "democlass")
   answerElement.innerText = answerText;
-
+  answerElement.addEventListener('mouseover', answerHover);
+  answerElement.addEventListener('click', nextQuestion);
   return answerElement;
 };
 

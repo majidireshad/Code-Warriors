@@ -1,7 +1,11 @@
 'use strict';
 
-import { handleNextQuestion } from '../handlers/questionHandlers.js';
+import {handleNextQuestion, hoverOnAnswers} from '../handlers/questionHandlers.js';
 
 export const nextQuestion = () => {
   handleNextQuestion();
 };
+export const answerHover = () => {
+ hoverOnAnswers();
+};
+
