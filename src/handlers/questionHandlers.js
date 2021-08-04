@@ -21,8 +21,9 @@ export const handleNextQuestion = () => {
   showCurrentQuestion();
 };
 export const hoverOnAnswers = ()=> {
-  const selectItems = document.getElementsByClassName('democlass')
-  for(const items of selectItems){
-    items.style.cursor = "pointer";
-  }
+  const selectItems = document.getElementsByClassName('selected-answer');
+    for (let i = 0; i < selectItems.length; i++) {
+        selectItems[i].style.backgroundColor = "yellow";
+        selectItems[i].style.cursor = "pointer";
+    }
 };
