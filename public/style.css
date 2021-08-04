@@ -19,3 +19,6 @@
   max-height: 80vh;
   overflow: auto;
 }
+li:hover{
+  font-size: 20px;
+}

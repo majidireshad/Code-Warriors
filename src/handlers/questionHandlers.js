@@ -20,10 +20,49 @@ export const handleNextQuestion = () => {
 
   showCurrentQuestion();
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const hoverOnAnswers = ()=> {
   const selectItems = document.getElementsByClassName('selected-answer');
     for (let i = 0; i < selectItems.length; i++) {
-        selectItems[i].style.backgroundColor = "yellow";
+        //selectItems[i].style.backgroundColor = "yellow";
         selectItems[i].style.cursor = "pointer";
     }
-};
+}; 
+

@@ -13,9 +13,10 @@ export const createAnswerElement = (answerText) => {
   answerElement.innerText = answerText;
   answerElement.addEventListener('mouseover', answerHover);
   answerElement.addEventListener('click', nextQuestion);
+
   return answerElement;
 };
-
+ 
 /**
  * Create a full question element
  */
@@ -26,7 +27,11 @@ export const createQuestionElement = (question) => {
   container.appendChild(title);
 
   const answerContainer = createDOMElement('ol');
-
+  answerContainer.addEventListener('click', function(e) {
+    if (e.target.tagName === 'LI'){
+      alert(e.target.innerText); 
+    }
+});
   for (const answerKey in question.answers) {
     const answer = createAnswerElement(question.answers[answerKey]);
     answerContainer.appendChild(answer);
