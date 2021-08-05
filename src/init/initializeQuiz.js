@@ -5,24 +5,25 @@ import { showCurrentQuestion } from '../handlers/questionHandlers.js';
 import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { createHiddenElement, createNextQuestionButtonElement, createSurrenderButtonElement } from '../views/questionViews.js';
 import { quizData } from '../data.js';
+import { createLastQuestionButtonElement } from '../views/questionViews.js'
 
 const initializeQuiz = () => {
-  setupQuizHTML();
+setupQuizHTML();
 
-  quizData.currentQuestionIndex = 0;
+quizData.currentQuestionIndex = 0;
 
-  showCurrentQuestion();
+showCurrentQuestion();
 };
 
 const setupQuizHTML = () => {
-  const userInterfaceContainer = getDOMElement('user-interface');
-  const quizContainer = createDOMElement('div', { id: QUIZ_CONTAINER_ID });
-  const questionContainer = createDOMElement('div', {
-    id: QUESTION_CONTAINER_ID,
-  });
+const userInterfaceContainer = getDOMElement('user-interface');
+const quizContainer = createDOMElement('div', { id: QUIZ_CONTAINER_ID });
+const questionContainer = createDOMElement('div', {
+  id: QUESTION_CONTAINER_ID,
+});
 
-  quizContainer.appendChild(questionContainer);
-
+quizContainer.appendChild(questionContainer);
+  
   const nextQuestionButton = createNextQuestionButtonElement();
   quizContainer.appendChild(nextQuestionButton);
   const surrenderButton = createSurrenderButtonElement();
@@ -30,6 +31,12 @@ const setupQuizHTML = () => {
   const hiddenModalBox = createHiddenElement();
   quizContainer.appendChild(hiddenModalBox);
   userInterfaceContainer.appendChild(quizContainer);
+
+const lastQuestionButton = createLastQuestionButtonElement();
+quizContainer.appendChild(lastQuestionButton);
+
+userInterfaceContainer.appendChild(quizContainer);
+
 };
 
 window.addEventListener('load', initializeQuiz);

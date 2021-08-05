@@ -15,3 +15,4 @@ export const HIDDEN_MODAL_ID = 'hiddenmodal';
 export const MODAL_STYLE_CLASS = 'stylemodal';
 export const CLOSE_X_CLASS = 'close';
 export const MODAL_CLASS = 'modal';
+export const LAST_QUESTION_BUTTON_ID = 'last-question-button';
