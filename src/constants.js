@@ -10,3 +10,8 @@
 export const QUESTION_CONTAINER_ID = 'question-container';
 export const QUIZ_CONTAINER_ID = 'quiz-container';
 export const NEXT_QUESTION_BUTTON_ID = 'next-question-button';
+export const SURRENDER_BUTTON_ID = 'surrender-button';
+export const HIDDEN_MODAL_ID = 'hiddenmodal';
+export const MODAL_STYLE_CLASS = 'stylemodal';
+export const CLOSE_X_CLASS = 'close';
+export const MODAL_CLASS = 'modal';

@@ -1,7 +1,8 @@
 'use strict';
 
-import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
-import {answerHover, nextQuestion} from '../listeners/questionListeners.js';
+import { NEXT_QUESTION_BUTTON_ID, SURRENDER_BUTTON_ID, HIDDEN_MODAL_ID} from '../constants.js';
+import { isCorrect, modalHandler, resources } from '../handlers/questionHandlers.js';
+import {answerHover, modalEvent, nextQuestion} from '../listeners/questionListeners.js';
 import { createDOMElement } from '../utils/DOMUtils.js';
 
 /**
@@ -54,4 +55,28 @@ export const createNextQuestionButtonElement = () => {
   buttonElement.addEventListener('click', nextQuestion);
 
   return buttonElement;
+};
+//Create button to see the answer 
+export const createSurrenderButtonElement = () => {
+  const surrenderButtonElement = createDOMElement('button', {
+    id:SURRENDER_BUTTON_ID
+  });
+  surrenderButtonElement.innerText = 'Show me the way!';
+
+  return surrenderButtonElement;
+};
+//Create a hidden modal box 
+export const createHiddenElement = () => {
+  const modalBox = createDOMElement('div', {id:HIDDEN_MODAL_ID,});
+  modalBox.setAttribute('class', 'modal');
+  const modalElement = createDOMElement('div');
+  modalElement.setAttribute('class', 'modalcontent')
+  modalBox.appendChild(modalElement);
+  const xButton = createDOMElement('span');
+  xButton.setAttribute('class', 'close');
+  xButton.innerText = 'X';
+  modalElement.innerText = `This is the way: The correct answer is ${isCorrect()}`, `Here are the facts : ${resources()}`;
+  modalElement.appendChild(xButton);
+
+return modalBox;
 };
