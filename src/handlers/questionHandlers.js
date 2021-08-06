@@ -4,6 +4,7 @@ import { QUESTION_CONTAINER_ID } from '../constants.js';
 import { createQuestionElement } from '../views/questionViews.js';
 import { clearDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
+import { checkAnswer } from '../questionListeners.js'
 
 export const showCurrentQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
@@ -22,14 +23,24 @@ export const handleNextQuestion = () => {
 };
 
 export const handleCheckAnswer = (selectedAnswer) => {
+const oneTimeSelection = selectedAnswer;
 const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-let clickedAnswer = selectedAnswer.innerText
-
-let currentCorrectAnswer = currentQuestion.answers[currentQuestion.correct];
-
+let clickedAnswer = oneTimeSelection.getAttribute('data-choose');
+data.currentQuestionIndex.selected = clickedAnswer;
+currentQuestion.answers.forEach((answer) => {
+  answer.style.pointerEvents = 'none';
+});
 if(clickedAnswer === currentCorrectAnswer){
-  selectedAnswer.style.cssText = "background-color: green; color: white;"
+  oneTimeSelection.style.pointerEvents = 'none';
+  oneTimeSelection.classList.add('correct-answer');
+  quizData.correctAnswersCounter++;
 } else {
-selectedAnswer.style.cssText = "background-color: red; color: white;"
+  oneTimeSelection.classList.add('wrong-answer');
+  correctAnswer.classList.add('correct-answer');
 }
+
+document.getElementById(
+  'corrects'
+).innerText = `${quizData.correctAnswersCounter} Correct of 10`;
 }
+

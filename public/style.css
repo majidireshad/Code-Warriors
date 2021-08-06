@@ -11,3 +11,15 @@
   max-height: 80vh;
   overflow: auto;
 }
+
+.answer{
+  background-color:aqua;
+}
+
+.correct-answer{
+background-color:green;
+}
+
+.wrong-answer{
+  background-color: red;
+}
