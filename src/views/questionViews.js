@@ -17,8 +17,9 @@ export const createAnswerElement = (answerText) => {
     answerElement.style.cursor = "pointer";
     answerElement.setAttribute('class', 'answer');
     answerElement.setAttribute('data-choose', key);
+    answerElement.addEventListener("click", checkAnswer)
   }
- 
+
   return answerElement;
 };
 
