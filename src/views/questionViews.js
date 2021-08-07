@@ -14,7 +14,6 @@ export const createAnswerElement = (answerText) => {
   answerElement.addEventListener("click", checkAnswer)
   return answerElement;
 };
-
 /**
  * Create a full question element
  */
@@ -25,7 +24,6 @@ export const createQuestionElement = (question) => {
   container.appendChild(title);
 
   const answerContainer = createDOMElement('ol');
-
   for (const answerKey in question.answers) {
     const answer = createAnswerElement(question.answers[answerKey]);
     answerContainer.appendChild(answer);
@@ -33,7 +31,6 @@ export const createQuestionElement = (question) => {
   }
 
   container.appendChild(answerContainer);
-
   return container;
 };
 

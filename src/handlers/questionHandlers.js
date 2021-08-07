@@ -1,7 +1,7 @@
   'use strict';
 
   import {QUESTION_CONTAINER_ID} from '../constants.js';
-  import {createQuestionElement} from '../views/questionViews.js';
+  import {createQuestionElement,createAnswerElement} from '../views/questionViews.js';
   import {clearDOMElement, createDOMElement, getDOMElement} from '../utils/DOMUtils.js';
   import {quizData} from '../data.js';
   import {LAST_QUESTION_BUTTON_ID, NEXT_QUESTION_BUTTON_ID} from '../constants.js';
@@ -44,16 +44,18 @@
 };
 
 export const handleCheckAnswer = (selectedAnswer) => {
+  const answerElement = createAnswerElement()
+  
 const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 let clickedAnswer = selectedAnswer.innerText
-
 let currentCorrectAnswer = currentQuestion.answers[currentQuestion.correct];
-
 if(clickedAnswer === currentCorrectAnswer){
   selectedAnswer.style.cssText = "background-color: green; color: white;"
+  
 } else {
 selectedAnswer.style.cssText = "background-color: red; color: white;"
 }
+answerElement.removeEventListener("click", checkAnswer)
 }
 
 export const quizIsEnded = () => {
