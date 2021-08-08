@@ -31,7 +31,7 @@
 }
 
 body {
-  background-image:url(/public/backGround.jpg);
+  background-image:url(https://majidireshad.github.io/browser-quiz-project-starter/public/backGround.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: fixed;
