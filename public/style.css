@@ -44,14 +44,15 @@ body {
   height:600px;
   background-color: #353534;
   border-radius: 10px;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 #next-question-button,
 #giveup-question-button,
-#last-question-button{
+#last-question-button, #start-quiz-btn{
     background-color:#fcd83c;
     color:black;
     width: 100px;
@@ -69,9 +70,10 @@ body {
 }
 
 
+
 #last-question-button:hover,
 #next-question-button:hover,
-#giveup-question-button:hover{
+#giveup-question-button:hover,#start-quiz-btn:hover{
   background-color:#ffdf50;
   cursor: pointer;
 }

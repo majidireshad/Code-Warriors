@@ -1,7 +1,8 @@
 'use strict';
 
-import {NEXT_QUESTION_BUTTON_ID, LAST_QUESTION_BUTTON_ID, ANSWER_CONTAINER_ID, GIVEUP_BUTTON_ID} from '../constants.js';
-import {nextQuestion, checkAnswer, displayCorrectAnswer} from '../listeners/questionListeners.js';
+
+import {NEXT_QUESTION_BUTTON_ID, LAST_QUESTION_BUTTON_ID, ANSWER_CONTAINER_ID, GIVEUP_BUTTON_ID, START_QUIZ_BUTTON_ID} from '../constants.js';
+import {nextQuestion, checkAnswer, displayCorrectAnswer,starQuizClick, restart} from '../listeners/questionListeners.js';
 import {createDOMElement} from '../utils/DOMUtils.js';
 
 /**
@@ -43,6 +44,16 @@ export const createQuestionElement = (question) => {
     container.appendChild(answerContainer);
     return container;
 };
+/**Create start quiz button  */
+
+export const createStartQuizBtn = () => {
+    const start_btn = createDOMElement('button', {
+        id:START_QUIZ_BUTTON_ID
+    });
+    start_btn.innerText = 'Start Quiz';
+    start_btn.addEventListener('click',starQuizClick);
+    return start_btn;
+};
 
 /**
  * Creates and returns the next questions button
@@ -80,7 +91,9 @@ export const createLastQuestionButtonElement = () => {
     });
 
     buttonLastElement.innerText = 'Restart Test';
-    buttonLastElement.addEventListener('click',nextQuestion);
+
+    buttonLastElement.addEventListener('click',restart);
+
     return buttonLastElement;
 };
 
@@ -103,3 +116,4 @@ export const createQuizResultElement = (numCorrect, numQuestions) => {
 
     return resultElement;
 };
+

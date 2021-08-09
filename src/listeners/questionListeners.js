@@ -1,6 +1,8 @@
 'use strict';
 
-import { handleNextQuestion ,handleCheckAnswer, handleGiveupBtn} from '../handlers/questionHandlers.js';
+
+import { handleNextQuestion ,handleCheckAnswer, handleGiveupBtn, startQuiz, backToStart } from '../handlers/questionHandlers.js';
+
 
 export const nextQuestion = () => {
   handleNextQuestion();
@@ -11,3 +13,9 @@ export const displayCorrectAnswer = () => {
 export const checkAnswer = (event) => {
   handleCheckAnswer(event.target);
 };
+export const starQuizClick = () => {
+  startQuiz();
+};
+ export const restart = () => {
+   backToStart();
+ };
