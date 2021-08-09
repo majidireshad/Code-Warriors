@@ -4,7 +4,7 @@ import {QUESTION_CONTAINER_ID, ANSWER_CONTAINER_ID} from '../constants.js';
 import {createQuestionElement, createQuizResultElement} from '../views/questionViews.js';
 import {clearDOMElement, getDOMElement} from '../utils/DOMUtils.js';
 import {quizData} from '../data.js';
-import {LAST_QUESTION_BUTTON_ID, NEXT_QUESTION_BUTTON_ID} from '../constants.js';
+import {LAST_QUESTION_BUTTON_ID, NEXT_QUESTION_BUTTON_ID, GIVEUP_BUTTON_ID} from '../constants.js';
 
 
 export const showCurrentQuestion = () => {
@@ -35,6 +35,14 @@ export const handleNextQuestion = () => {
         quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
     }
     showCurrentQuestion();
+};
+
+// giveup function 
+export const handleGiveupBtn = () => {
+  let correctAnswerElement = getDOMElement(quizData.questions[quizData.currentQuestionIndex].correct);
+  correctAnswerElement.classList.add('correct-answer');
+  const answerElement = getDOMElement(ANSWER_CONTAINER_ID);
+    answerElement.style.pointerEvents = "none";
 };
 
 export const handleCheckAnswer = (selectedAnswer) => {
@@ -69,8 +77,10 @@ export const quizIsEnded = () => {
  */
 const restartQuizSetup = () => {
     const nextQuestionBtn = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+    const giveupBtn = getDOMElement(GIVEUP_BUTTON_ID)
     const lastQuestionBtn = getDOMElement(LAST_QUESTION_BUTTON_ID);
     nextQuestionBtn.style.visibility = 'visible';
+    giveupBtn.style.visibility = 'visible';
     lastQuestionBtn.style.visibility = 'hidden';
 };
 
@@ -84,8 +94,10 @@ const showResultPage = () => {
     const resultElement = createQuizResultElement(quizData.correctAnswersCounter, lengthOfArray);
     questionContainer.appendChild(resultElement);
     const nextQuestionBtn = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+    const giveupBtn = getDOMElement(GIVEUP_BUTTON_ID)
     const lastQuestionBtn = getDOMElement(LAST_QUESTION_BUTTON_ID);
     nextQuestionBtn.style.visibility = 'hidden';
+    giveupBtn.style.visibility = 'hidden';
     lastQuestionBtn.style.visibility = 'visible';
     quizData.correctAnswersCounter = 0;
 };

@@ -1,7 +1,7 @@
 'use strict';
 
-import {NEXT_QUESTION_BUTTON_ID, LAST_QUESTION_BUTTON_ID, ANSWER_CONTAINER_ID} from '../constants.js';
-import {nextQuestion, checkAnswer} from '../listeners/questionListeners.js';
+import {NEXT_QUESTION_BUTTON_ID, LAST_QUESTION_BUTTON_ID, ANSWER_CONTAINER_ID, GIVEUP_BUTTON_ID} from '../constants.js';
+import {nextQuestion, checkAnswer, displayCorrectAnswer} from '../listeners/questionListeners.js';
 import {createDOMElement} from '../utils/DOMUtils.js';
 
 /**
@@ -54,9 +54,20 @@ export const createNextQuestionButtonElement = () => {
     });
 
     buttonElement.innerText = 'Next question';
-    buttonElement.addEventListener('click', nextQuestion);
+    buttonElement.addEventListener('click',nextQuestion);
     return buttonElement;
 
+};
+
+//Create a button to help the use to see the correct answer 
+export const createGiveupButtonElement = () => {
+    const giveupButton = createDOMElement('button', {
+        id: GIVEUP_BUTTON_ID,
+    });
+
+    giveupButton.innerText = 'Give up';
+    giveupButton.addEventListener('click', displayCorrectAnswer);
+    return giveupButton;
 };
 
 /**
@@ -69,7 +80,7 @@ export const createLastQuestionButtonElement = () => {
     });
 
     buttonLastElement.innerText = 'Restart Test';
-    buttonLastElement.addEventListener('click', nextQuestion);
+    buttonLastElement.addEventListener('click',nextQuestion);
     return buttonLastElement;
 };
 

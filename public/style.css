@@ -49,29 +49,29 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-#next-question-button{
-  background-color:#fcd83c;
-  color:black;
-  width: 100px;
-  height:30px;
-  border: none;
-  border-radius:10px;
-  position:absolute;
-  bottom:50px;
-}
+#next-question-button,
+#giveup-question-button,
 #last-question-button{
-  background-color:#fcd83c;
-  color:black;
-  width: 100px;
-  height:30px;
-  border: none;
-  border-radius:10px;
-  position:absolute;
-  bottom:50px;
+    background-color:#fcd83c;
+    color:black;
+    width: 100px;
+    height:30px;
+    border: none;
+    border-radius:10px;
+    position:absolute;
+    bottom:50px;
+}
+#next-question-button{
+  right: 340px;
+}
+#giveup-question-button{
+    left: 350px;
 }
 
-#last-question-button:hover, #next-question-button:hover{
+
+#last-question-button:hover,
+#next-question-button:hover,
+#giveup-question-button:hover{
   background-color:#ffdf50;
   cursor: pointer;
 }
