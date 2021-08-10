@@ -1,8 +1,8 @@
 'use strict';
 
 
-import {NEXT_QUESTION_BUTTON_ID, LAST_QUESTION_BUTTON_ID, ANSWER_CONTAINER_ID, GIVEUP_BUTTON_ID, START_QUIZ_BUTTON_ID} from '../constants.js';
-import {nextQuestion, checkAnswer, displayCorrectAnswer,starQuizClick, restart} from '../listeners/questionListeners.js';
+import {NEXT_QUESTION_BUTTON_ID, LAST_QUESTION_BUTTON_ID, ANSWER_CONTAINER_ID, GIVE_UP_BUTTON_ID, START_QUIZ_BUTTON_ID} from '../constants.js';
+import {nextQuestion, checkAnswer, displayCorrectAnswer,startQuizClick, restart} from '../listeners/questionListeners.js';
 import {createDOMElement} from '../utils/DOMUtils.js';
 
 /**
@@ -26,6 +26,7 @@ export const createAnswerElement = (answerText, elementID) => {
  */
 export const createQuestionElement = (question) => {
     const container = createDOMElement('div');
+    container.classList.add('container');
     const title = createDOMElement('h1');
     title.innerText = question.text;
     title.classList.add('question-title')
@@ -40,7 +41,7 @@ export const createQuestionElement = (question) => {
         const answer = createAnswerElement(question.answers[answerKey], answerKey);
         answerContainer.appendChild(answer);
     }
-
+    answerContainer.classList.add('answer-container')
     container.appendChild(answerContainer);
     return container;
 };
@@ -51,7 +52,7 @@ export const createStartQuizBtn = () => {
         id:START_QUIZ_BUTTON_ID
     });
     start_btn.innerText = 'Start Quiz';
-    start_btn.addEventListener('click',starQuizClick);
+    start_btn.addEventListener('click',startQuizClick);
     return start_btn;
 };
 
@@ -60,9 +61,12 @@ export const createStartQuizBtn = () => {
  */
 
 export const createNextQuestionButtonElement = () => {
+ 
     const buttonElement = createDOMElement('button', {
         id: NEXT_QUESTION_BUTTON_ID,
     });
+
+    
 
     buttonElement.innerText = 'Next question';
     buttonElement.addEventListener('click',nextQuestion);
@@ -71,14 +75,14 @@ export const createNextQuestionButtonElement = () => {
 };
 
 //Create a button to help the use to see the correct answer 
-export const createGiveupButtonElement = () => {
-    const giveupButton = createDOMElement('button', {
-        id: GIVEUP_BUTTON_ID,
+export const createGiveUpButtonElement = () => {
+    const giveUpButton = createDOMElement('button', {
+        id: GIVE_UP_BUTTON_ID,
     });
 
-    giveupButton.innerText = 'Give up';
-    giveupButton.addEventListener('click', displayCorrectAnswer);
-    return giveupButton;
+    giveUpButton.innerText = 'Give up';
+    giveUpButton.addEventListener('click', displayCorrectAnswer);
+    return giveUpButton;
 };
 
 /**
@@ -105,7 +109,12 @@ export const createLastQuestionButtonElement = () => {
 export const createQuizResultElement = (numCorrect, numQuestions) => {
     const resultElement = createDOMElement('div');
     const titleElement = createDOMElement('h1');
-    titleElement.innerText = "You are a true Warrior!";
+    if(numCorrect >= 5){
+      titleElement.innerText = "You are a true Warrior!";
+    }else{
+      titleElement.innerText = "You are a junior fighter, try again!";
+    }
+    
     titleElement.classList.add('final-score-title');
     resultElement.appendChild(titleElement);
 
