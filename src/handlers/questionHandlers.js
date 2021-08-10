@@ -1,10 +1,10 @@
 'use strict';
 
-import {QUESTION_CONTAINER_ID, ANSWER_CONTAINER_ID} from '../constants.js';
+import {QUESTION_CONTAINER_ID, ANSWER_CONTAINER_ID, QUIZ_CONTAINER_ID, START_QUIZ_BUTTON_ID, PAGE_TITLE} from '../constants.js';
 import {createQuestionElement, createQuizResultElement} from '../views/questionViews.js';
 import {clearDOMElement, getDOMElement} from '../utils/DOMUtils.js';
 import {quizData} from '../data.js';
-import {LAST_QUESTION_BUTTON_ID, NEXT_QUESTION_BUTTON_ID} from '../constants.js';
+import {LAST_QUESTION_BUTTON_ID, NEXT_QUESTION_BUTTON_ID, GIVE_UP_BUTTON_ID} from '../constants.js';
 
 
 export const showCurrentQuestion = () => {
@@ -37,6 +37,14 @@ export const handleNextQuestion = () => {
     showCurrentQuestion();
 };
 
+// giveUp function 
+export const handleGiveUpBtn = () => {
+  let correctAnswerElement = getDOMElement(quizData.questions[quizData.currentQuestionIndex].correct);
+  correctAnswerElement.classList.add('correct-answer');
+  const answerElement = getDOMElement(ANSWER_CONTAINER_ID);
+    answerElement.style.pointerEvents = "none";
+};
+
 export const handleCheckAnswer = (selectedAnswer) => {
     const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
     let clickedAnswer = selectedAnswer.innerText;
@@ -67,10 +75,24 @@ export const quizIsEnded = () => {
 /**
  * The restartBtnSetup function resets the buttons when the test is restarted.
  */
+export const startQuiz = () => {
+    const startQuizBtn = getDOMElement(START_QUIZ_BUTTON_ID);
+    const displayQuiz = getDOMElement(QUIZ_CONTAINER_ID);
+    const displayStartContainer = document.getElementById("start-container");
+    const titleDisplay = getDOMElement(PAGE_TITLE);
+    titleDisplay.innerText = 'Code Warriors';
+    displayStartContainer.style.display = 'none';
+    startQuizBtn.style.visibility = 'hidden';
+    displayQuiz.style.display = 'flex';
+
+};  
 const restartQuizSetup = () => {
+    
     const nextQuestionBtn = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+    const giveUpBtn = getDOMElement(GIVE_UP_BUTTON_ID)
     const lastQuestionBtn = getDOMElement(LAST_QUESTION_BUTTON_ID);
     nextQuestionBtn.style.visibility = 'visible';
+    giveUpBtn.style.visibility = 'visible';
     lastQuestionBtn.style.visibility = 'hidden';
 };
 
@@ -84,8 +106,23 @@ const showResultPage = () => {
     const resultElement = createQuizResultElement(quizData.correctAnswersCounter, lengthOfArray);
     questionContainer.appendChild(resultElement);
     const nextQuestionBtn = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+    const giveUpBtn = getDOMElement(GIVE_UP_BUTTON_ID)
     const lastQuestionBtn = getDOMElement(LAST_QUESTION_BUTTON_ID);
     nextQuestionBtn.style.visibility = 'hidden';
+    giveUpBtn.style.visibility = 'hidden';
     lastQuestionBtn.style.visibility = 'visible';
     quizData.correctAnswersCounter = 0;
+};
+
+export const backToStart =() => {
+    const resetStartBtn = getDOMElement(START_QUIZ_BUTTON_ID);
+    const restart = document.getElementById(QUIZ_CONTAINER_ID);
+    const displayStartContainer = document.getElementById("start-container");
+    const titleDisplay = getDOMElement(PAGE_TITLE);
+    titleDisplay.innerText = '';
+    displayStartContainer.style.display = 'flex';
+    restart.style.display = 'none';
+    resetStartBtn.style.visibility = 'visible';
+    quizData.currentQuestionIndex = 0;
+    showCurrentQuestion()
 };
