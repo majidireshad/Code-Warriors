@@ -14,7 +14,7 @@ https://majidireshad.github.io/Code-Warriors/
 - [x] A user can see the correct answer for questions (either immediately or at the end of the quiz)
 - [x] A user can see their score at the end of the quiz
 
-# developers 
+# Developers 
 - Reshad Majidi
 - Alejandro Urroz
 - Lydia Sameer
